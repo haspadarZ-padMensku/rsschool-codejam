@@ -1,4 +1,4 @@
-const recursion = (tree) => {
+module.exports = function recursion(tree) {
   const res = [];
   const DEEP = 0;
 
