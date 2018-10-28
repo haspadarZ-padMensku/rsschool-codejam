@@ -3,17 +3,16 @@ module.exports = function make(...args) {
 
   function f(...b) {
     if (b[0] instanceof Function) {
-      let a = inputArr.split(' ').map((n) => +n);
+      const a = inputArr.split(' ').map(n => +n);
       return a.reduce(b[0]);
-    } else {
-      inputArr += ' ' + b.join(' ');
-      return f;
     }
+    inputArr += ` ${b.join(' ')}`;
+    return f;
   }
 
-  f.toString = function () {
+  f.toString = function funcToString() {
     return inputArr;
-  }
+  };
 
   return f;
-}
+};
