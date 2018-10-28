@@ -1,12 +1,12 @@
-function add(...args) {
+module.exports = function make(...args) {
   let inputArr = args.join(' ');
 
-  function f(b) {
-    if (b instanceof Function) {
+  function f(...b) {
+    if (b[0] instanceof Function) {
       let a = inputArr.split(' ').map((n) => +n);
-      return a.reduce(sum);
+      return a.reduce(b[0]);
     } else {
-      inputArr += ' ' + b;
+      inputArr += ' ' + b.join(' ');
       return f;
     }
   }
